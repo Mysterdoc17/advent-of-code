@@ -1,0 +1,47 @@
+@startuml cas d'utilisation jour-1
+/' Création des acteurs '/
+actor elf1 as E1
+actor elf2 as E2
+actor elf3 as E3
+actor elf4 as E4
+actor elf5 as E5
+/' Création d'un cas d'utilisation : jour-1 '/
+rectangle jour-1 {
+    /' sommes portées par les elfs '/
+    (6000 calories) as elf1_calories
+    (11000 calories) as elf3_calories
+    (24000 calories) as elf4_calories
+    (10000 calories) as elf5_calories
+
+    /' répartition des sommes portées par les elfs '/
+    (1000 calories) as elf1_calories_comp_1
+    (2000 calories) as elf1_calories_comp_2
+    (3000 calories) as elf1_calories_comp_3
+    (4000 calories) as elf2_calories
+    (5000 calories) as elf3_calories_comp_1
+    (6000 calories) as elf3_calories_comp_2
+    (7000 calories) as elf4_calories_comp_1
+    (8000 calories) as elf4_calories_comp_2
+    (9000 calories) as elf4_calories_comp_3
+
+    E1 -> elf1_calories : consomme
+    elf1_calories_comp_1 ..> elf1_calories : <<include>>
+    elf1_calories_comp_2 ..> elf1_calories : <<include>>
+    elf1_calories_comp_3 ..> elf1_calories : <<include>>
+    
+    /' elf2 consomme seulement  '/
+    E2 -> elf2_calories : consomme
+
+    E3 -> elf3_calories : consomme
+    elf3_calories_comp_1 ..> elf3_calories : <<include>>
+    elf3_calories_comp_2 ..> elf3_calories : <<include>>
+
+    E4 -> elf4_calories : consomme
+    elf4_calories_comp_1 ..> elf4_calories : <<include>>
+    elf4_calories_comp_2 ..> elf4_calories : <<include>>
+    elf4_calories_comp_3 ..> elf4_calories : <<include>>
+
+    /' elf5 consomme seulement  '/
+    E5 -> elf5_calories : consomme
+}
+@enduml
